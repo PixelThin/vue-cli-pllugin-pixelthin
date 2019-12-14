@@ -1,0 +1,34 @@
+{
+    "useConfigFiles": true,
+    "configs": {
+        "vue": {
+            "outputDir": "prod/dist",
+            "productionSourceMap": false
+        }
+    },
+    "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+            "config": "base",
+            "lintOn": [
+                "save"
+            ]
+        },
+        "vue-cli-plugin-vuetify": {
+            "preset": "configure",
+            "replaceComponents": false,
+            "useTheme": true,
+            "useCustomProperties": false,
+            "iconFont": "mdi",
+            "installFonts": true,
+            "useAlaCarte": true,
+            "usePolyfill": true,
+            "locale": "en"
+        },
+        "@vue/cli-plugin-unit-mocha": {}
+    },
+    "router": true,
+    "routerHistoryMode": true,
+    "vuex": true,
+    "cssPreprocessor": "dart-sass"
+}
