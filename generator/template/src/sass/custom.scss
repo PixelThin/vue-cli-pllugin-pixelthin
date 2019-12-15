@@ -1,0 +1,87 @@
+.lato {
+  font-family: "Lato", sans-serif;
+}
+
+.no-decor {
+  text-decoration: none;
+}
+
+// Common opacity classes
+
+.op-80 {
+  opacity: 0.8;
+}
+
+.op-60 {
+  opacity: 0.6;
+}
+
+// Common overflow classes
+
+.ov-hidden {
+  overflow: hidden;
+}
+
+.ov-x-hidden {
+  overflow: hidden;
+}
+
+// Common height classes by veiwport height
+.vh-100 {
+  min-height: 100vh;
+}
+.vh-80 {
+  min-height: 80vh;
+}
+.vh-60 {
+  min-height: 60vh;
+}
+.vh-40 {
+  min-height: 40vh;
+}
+.vh-30 {
+  min-height: 30vh;
+}
+
+.vh-25 {
+  min-height: 25vh;
+}
+
+// Common Gradients
+.secondary-gradient {
+  background: rgb(255, 202, 64);
+  background: linear-gradient(45deg, rgba(255, 202, 64, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.primary-gradient {
+  background: rgb(112, 202, 241);
+  background: linear-gradient(315deg, rgba(112, 202, 241, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.primary-dark-gradient {
+  background: rgb(112, 202, 241);
+  background: linear-gradient(45deg, rgba(112, 202, 241, 1) 0%, rgba(68, 120, 187, 1) 100%);
+}
+
+// Misc. classes
+
+.width-100 {
+  width: 100%;
+}
+
+.word-break-normal {
+  word-break: normal !important;
+}
+
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.left-border {
+  border-left: black solid;
+}
