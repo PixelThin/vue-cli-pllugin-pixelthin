@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="secondary">
     <v-row class="vh-1 5 mt-4 subtitle-2 font-weight-light">
-      <v-col cols="3" offset="1" md="2" offset-md="2">
+      <v-col cols="3" offset="1" md="2" offset-md="1">
         <router-link to="/">
           <v-img src="@/assets/pixelthin-logo-text-turquoise.png" />
         </router-link>
@@ -28,7 +28,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="7" md="4" class="primary--text text-end body-2 font-weight-light text-center">
+      <v-col cols="7" md="4" class="primary--text body-2 font-weight-light text-center">
         <router-link class="no-decor font-weight-medium primary-dark--text" to="/">&copy;Site Name</router-link>
       </v-col>
       <v-col

@@ -12,7 +12,7 @@
         </v-row>
         <v-row class="mt-12">
           <v-col cols="6" md="2" offset-md="4" class="text-end mb-6 mt-12">
-            <v-btn outlined class="pa-6 base-dark primary--text mt-12" to="/about-us`">About Us</v-btn>
+            <v-btn outlined class="pa-6 base-dark primary--text mt-12" to="/about-us">About Us</v-btn>
           </v-col>
           <v-col cols="6" md="2" class="text-left mb-6 mt-12">
             <v-btn outlined class="pa-6 base-dark primary--text mt-12" to="/contact-us">Contact Us</v-btn>

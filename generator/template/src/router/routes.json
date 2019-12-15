@@ -10,5 +10,9 @@
     {
         "path": "/about-us",
         "name": "about-us"
+    },
+    {
+        "path": "/what-we-do",
+        "name": "what-we-do"
     }
 ]

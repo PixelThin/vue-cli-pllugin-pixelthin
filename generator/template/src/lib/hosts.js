@@ -3,7 +3,7 @@ export default {
     install(Vue) {
         Vue.mixin({
             computed: {
-                ...mapGetters(['imageHost', 'cmsHost', 'forumUrl', 'siteHost'])
+                ...mapGetters(['imageHost', 'cmsHost', 'siteHost'])
             }
         })
     }

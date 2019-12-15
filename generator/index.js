@@ -40,7 +40,7 @@ module.exports = (api, options) => {
             'src/components/HelloWorld.vue',
             'src/App.vue',
             'src/views/About.vue',
-            'src/views/Home/vue'
+            'src/views/Home.vue'
         ]
         files.forEach(f => {
             if (fs.existsSync(api.resolve(f))) {
