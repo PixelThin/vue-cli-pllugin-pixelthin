@@ -23,9 +23,11 @@ module.exports = (api, options) => {
         // to support pre-rendering with a route JSON object
         const oldRouterFile = 'src/router/index.js'
         const newRouterFile = 'src/router/pixel-router.js'
+        const newAppFile = 'src/pixel-app.vue'
         const files = [
             'src/components/HelloWorld.vue',
             'src/App.vue',
+            // Note About and Home are case-sensitive on Linux, not on Windows.
             'src/views/About.vue',
             'src/views/Home.vue',
             oldRouterFile
@@ -36,5 +38,7 @@ module.exports = (api, options) => {
             }
         })
         fs.renameSync(api.resolve(newRouterFile), api.resolve(oldRouterFile))
+        // Note: we use lowercase for all files to avoid casing issues between Windows and Linux
+        fs.renameSync(api.resolve(newAppFile), api.resolve('src/app.vue'))
     });
 }

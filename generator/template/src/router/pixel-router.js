@@ -6,7 +6,7 @@ import routes from './routes.json'
 const components = {
   home,
   'contact-us': () => import(/*webpackChunkName: 'contact-us'*/ '../views/contact-us.vue'),
-  'about-us': () => import('../views/about.vue'),
+  'about-us': () => import('../views/about-us.vue'),
   'what-we-do': () => ('../views/what-we-do.vue')
 }
 
