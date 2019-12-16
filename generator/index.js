@@ -1,8 +1,4 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
-// const routes = require('./src/router/routes.json')
-// console.log(routes.map(r => r.path))
-const PrerenderSpaPlugin = require('prerender-spa-plugin')
 const fs = require('fs')
 module.exports = (api, options) => {
     api.extendPackage({
@@ -19,33 +15,26 @@ module.exports = (api, options) => {
     api.render('./template')
     api.configurewWebpack = function (config) {
         return {
-            plugins: [
-                new CopyWebpackPlugin([{
-                    from: path.join(__dirname, 'php'),
-                    to: path.join(__dirname, 'prod/dist/php')
-                }]),
-                new PrerenderSpaPlugin({
-                    // Required - The path to the webpack-outputted app to prerender.
-                    staticDir: path.join(__dirname, 'prod/dist'),
-                    // Required - Routes to render.
-                    routes: ['/', '/about-us', '/contact-us'],
-                    // routes: routes.map(r => r.path)
-                })
-            ]
+            // TODO: Add copying of php files and setup pre-rendering.
         }
     }
     api.onCreateComplete(() => {
-        console.log('******* All Done ******')
+        // This plugin needs to overwrite the default router 
+        // to support pre-rendering with a route JSON object
+        const oldRouterFile = 'src/router/index.js'
+        const newRouterFile = 'src/router/pixel-router.js'
         const files = [
             'src/components/HelloWorld.vue',
             'src/App.vue',
             'src/views/About.vue',
-            'src/views/Home.vue'
+            'src/views/Home.vue',
+            oldRouterFile
         ]
         files.forEach(f => {
             if (fs.existsSync(api.resolve(f))) {
                 fs.unlinkSync(api.resolve(f))
             }
         })
+        fs.renameSync(api.resolve(newRouterFile), api.resolve(oldRouterFile))
     });
 }
