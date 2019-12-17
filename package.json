@@ -1,4 +1,13 @@
 {
+  "main": "index.js",
+  "name": "vue-cli-plugin-pixelthin",
+  "version": "0.1.0",
+  "description": "vue-cli plugin to bootstrap a web app / website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PixelThin/vue-cli-plugin-pixelthin.git"
+  },
+  "homepage": "https://github.com/PixelThin/vue-cli-plugin-pixelthin#readme",
   "dependencies": {
     "copy-webpack-plugin": "^5.1.1",
     "prerender-spa-plugin": "^3.4.0"

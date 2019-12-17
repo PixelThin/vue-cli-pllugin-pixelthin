@@ -1,10 +1,12 @@
-const path = require('path')
 const fs = require('fs')
 module.exports = (api, options) => {
     api.extendPackage({
         dependencies: {
             "axios": "^0.19.0",
             "vue-scroll-reveal": "^1.0.11",
+            "vuex": "^3.0.1",
+            "vue-router": "^3.0.3",
+            "vuetify": "^2.1.0",
         },
         devDependencies: {
             "prerender-spa-plugin": "^3.4.0",
@@ -13,11 +15,7 @@ module.exports = (api, options) => {
         }
     })
     api.render('./template')
-    api.configurewWebpack = function (config) {
-        return {
-            // TODO: Add copying of php files and setup pre-rendering.
-        }
-    }
+
     api.onCreateComplete(() => {
         // This plugin needs to overwrite the default router 
         // to support pre-rendering with a route JSON object
