@@ -19,24 +19,32 @@ module.exports = (api, options) => {
     api.onCreateComplete(() => {
         // This plugin needs to overwrite the default router 
         // to support pre-rendering with a route JSON object
-        const oldRouterFile = 'src/router/index.js'
+        const originalRouterFile = 'src/router/index.js'
+        const originalStoreFile = 'src/store/index.js'
         const newRouterFile = 'src/router/pixel-router.js'
-        const newAppFile = 'src/pixel-app.vue'
-        const files = [
+        const deletes = [
             'src/components/HelloWorld.vue',
+            // Note About, App, and Home are case-sensitive on Linux, not on Windows.
             'src/App.vue',
-            // Note About and Home are case-sensitive on Linux, not on Windows.
             'src/views/About.vue',
             'src/views/Home.vue',
-            oldRouterFile
+            originalStoreFile,
+            originalRouterFile
         ]
-        files.forEach(f => {
-            if (fs.existsSync(api.resolve(f))) {
-                fs.unlinkSync(api.resolve(f))
+        const renames = [
+            // PixelThin uses lowercase for all file names to avoid issues 
+            // between Linux and Windows (Windows is not consistently case-sensitive, Linux is)
+            { templateName: 'src/pixel-app.vue', projectName: 'src/app.vue' },
+            { templateName: 'src/store/pixel-store.js', projectName: originalStoreFile },
+            { templateName: 'src/router/pixel-router.js', projectName: originalRouterFile }
+        ]
+        deletes.forEach(d => {
+            if (fs.existsSync(api.resolve(d))) {
+                fs.unlinkSync(api.resolve(d))
             }
         })
-        fs.renameSync(api.resolve(newRouterFile), api.resolve(oldRouterFile))
-        // Note: we use lowercase for all files to avoid casing issues between Windows and Linux
-        fs.renameSync(api.resolve(newAppFile), api.resolve('src/app.vue'))
+        renames.forEach(r => {
+            fs.renameSync(api.resolve(r.templateName), api.resolve(r.projectName))
+        })
     });
 }
