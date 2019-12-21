@@ -3,8 +3,8 @@ const path = require('path')
 const PrerenderSpaPlugin = require('prerender-spa-plugin')
 const fs = require('fs')
 
-module.exports = (api) => {
-    api.configurewWebpack = function (config) {
+module.exports = (api, options) => {
+    api.configureWebpack((config) => {
         const routeFile = api.resolve("src/router/routes.json")
         const exists = fs.existsSync(routeFile)
         const routes = exists ? require(routeFile) : [
@@ -17,16 +17,19 @@ module.exports = (api) => {
         return {
             plugins: [
                 new CopyWebpackPlugin([{
-                    from: path.join(__dirname, 'php'),
-                    to: path.join(__dirname, 'prod/dist/php')
+                    from: 'php',
+                    to: `php`
                 }]),
                 new PrerenderSpaPlugin({
                     // Required - The path to the webpack-outputted app to prerender.
-                    staticDir: path.join(__dirname, 'prod/dist'),
+                    // staticDir: path.join(__dirname, options.outputDir),
+                    staticDir: api.resolve(options.outputDir),
                     // The routes to render should be in an object 
                     routes: routes.filter(r => r.preRender).map(r => r.path)
                 })
             ]
         }
-    }
+    })
+
+
 }
