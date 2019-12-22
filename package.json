@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "name": "vue-cli-plugin-pixelthin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A vue-cli plugin that pre-renders routes in src/router/routes.json and copies ./php/ into dist",
   "repository": {
     "type": "git",
