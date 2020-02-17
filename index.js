@@ -11,15 +11,11 @@ module.exports = (api, options) => {
             { path: '/', preRender: true }
         ]
         if (!exists) {
-            console.log(`*****Warning: no routes file found at src/routers/routes.json.
+            console.log(`*****Warning: no routes file found at src/router/routes.json.
             Only the root path will be pre-rendered.`)
         }
         return {
             plugins: [
-                new CopyWebpackPlugin([{
-                    from: 'php',
-                    to: `php`
-                }]),
                 new PrerenderSpaPlugin({
                     // Required - The path to the webpack-outputted app to prerender.
                     // staticDir: path.join(__dirname, options.outputDir),
