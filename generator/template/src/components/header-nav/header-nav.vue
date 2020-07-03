@@ -15,5 +15,14 @@
 <style lang="scss" scoped>
 </style>
 <script>
-export default {};
+export default {
+  methods: {
+    toggleDrawer() {
+      this.$store.commit('setDrawerOpen', !this.drawerOpen)
+    }
+  },
+  computed: {
+    ...mapGetters(['drawerOpen'])
+  },
+};
 </script>
