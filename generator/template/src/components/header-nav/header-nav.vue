@@ -6,10 +6,13 @@
       </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items>
+    <v-toolbar-items class="hidden-sm-and-down>
       <v-btn text to="/about-us">About Us</v-btn>
       <v-btn text to="/contact-us">Contact Us</v-btn>
     </v-toolbar-items>
+    <v-btn text @click="toggleDrawer" class="hidden-md-and-up">
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 <style lang="scss" scoped>
